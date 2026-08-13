@@ -1,0 +1,11 @@
+period_id,fiscal_year,fiscal_year_label,is_covid_period,is_post_covid
+1,2014,2014-15,False,False
+2,2015,2015-16,False,False
+3,2016,2016-17,False,False
+4,2017,2017-18,False,False
+5,2018,2018-19,False,False
+6,2019,2019-20,False,False
+7,2020,2020-21,True,False
+8,2021,2021-22,True,False
+9,2022,2022-23,False,True
+10,2023,2023-24,False,True

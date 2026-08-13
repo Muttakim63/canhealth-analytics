@@ -1,0 +1,151 @@
+hospital_id,hospital_name,province_code,province_name,health_region,city,hospital_type,urban_rural,bed_count,established_year
+1,Memorial Cranbrook Hospital & Health Sciences Centre,BC,British Columbia,Interior,Cranbrook,Community,Urban,145,1966
+2,Maple Mississauga Regional Hospital,ON,Ontario,North West,Mississauga,Community,Urban,181,1972
+3,Victoria Toronto Memorial Hospital,ON,Ontario,Central,Toronto,Rural,Rural,63,1948
+4,Sunnybrook Calgary General Hospital,AB,Alberta,Calgary Zone,Calgary,Rural,Urban,35,1938
+5,Heritage Summerside Hospital,PE,Prince Edward Island,Health PEI,Summerside,Rural,Rural,60,1946
+6,Heritage London Regional Hospital,ON,Ontario,Toronto Central,London,Community,Urban,56,1933
+7,North Mississauga Hospital,ON,Ontario,West,Mississauga,Teaching,Urban,474,1936
+8,Maple Brampton Health Centre,ON,Ontario,South West,Brampton,Community,Urban,192,1978
+9,Victoria Sault Ste. Marie Hospital,ON,Ontario,South West,Sault Ste. Marie,Specialty,Urban,82,1984
+10,Royal Hamilton General Hospital,ON,Ontario,South West,Hamilton,Community,Urban,127,1962
+11,St. Rimouski Memorial Hospital,QC,Quebec,Outaouais,Rimouski,Rural,Urban,56,1903
+12,North Sherbrooke Hospital,QC,Quebec,Estrie,Sherbrooke,Rural,Urban,33,1948
+13,East Barrie General Hospital,ON,Ontario,Toronto Central,Barrie,Community,Urban,239,1985
+14,Civic Rimouski Hospital & Health Sciences Centre,QC,Quebec,Estrie,Rimouski,Community,Urban,209,1908
+15,Central Windsor Health Centre,ON,Ontario,Central,Windsor,Community,Urban,143,1898
+16,Central Chicoutimi Hospital,QC,Quebec,Mauricie,Chicoutimi,Rural,Urban,72,1963
+17,Heritage Bathurst Memorial Hospital,NB,New Brunswick,Vitalite,Bathurst,Rural,Urban,28,1982
+18,Memorial Fort McMurray Hospital,AB,Alberta,Calgary Zone,Fort McMurray,Community,Urban,250,1889
+19,General Gatineau Hospital,QC,Quebec,Lanaudiere,Gatineau,Rural,Urban,57,1894
+20,West Barrie Memorial Hospital,ON,Ontario,Central,Barrie,Teaching,Urban,449,1963
+21,Maple Brampton Health Centre,ON,Ontario,East,Brampton,Rural,Urban,63,1955
+22,Civic Trois-Rivieres General Hospital,QC,Quebec,Estrie,Trois-Rivieres,Rural,Urban,78,1901
+23,Royal Windsor Regional Hospital,ON,Ontario,West,Windsor,Community,Urban,169,1969
+24,East Brandon Hospital,MB,Manitoba,Southern Health,Brandon,Community,Urban,290,1896
+25,Sunnybrook Thunder Bay Hospital,ON,Ontario,North East,Thunder Bay,Community,Urban,180,1890
+26,Heritage Hamilton Regional Hospital,ON,Ontario,South West,Hamilton,Community,Urban,135,1955
+27,South Grande Prairie Hospital,AB,Alberta,Edmonton Zone,Grande Prairie,Rural,Urban,50,1881
+28,Queen's Hamilton Memorial Hospital,ON,Ontario,North East,Hamilton,Rural,Urban,70,1988
+29,Memorial Sudbury Memorial Hospital,ON,Ontario,Toronto Central,Sudbury,Rural,Rural,46,1927
+30,Royal Barrie Hospital,ON,Ontario,West,Barrie,Community,Urban,176,1913
+31,Victoria Gatineau Hospital,QC,Quebec,Outaouais,Gatineau,Rural,Urban,48,1882
+32,Queen's Sudbury Hospital,ON,Ontario,Central,Sudbury,Rural,Rural,51,1947
+33,Central Brandon Regional Hospital,MB,Manitoba,Northern Health,Brandon,Rural,Urban,70,1905
+34,Civic Mississauga Regional Hospital,ON,Ontario,Toronto Central,Mississauga,Specialty,Urban,150,1967
+35,General Red Deer Regional Hospital,AB,Alberta,North Zone,Red Deer,Rural,Urban,76,1959
+36,Royal Laval Regional Hospital,QC,Quebec,Mauricie,Laval,Teaching,Urban,75,1964
+37,Memorial Gatineau Hospital & Health Sciences Centre,QC,Quebec,Montreal,Gatineau,Rural,Urban,59,1936
+38,Queen's Fredericton Medical Centre,NB,New Brunswick,Horizon,Fredericton,Rural,Rural,79,1941
+39,Royal Brandon Health Centre,MB,Manitoba,Winnipeg,Brandon,Rural,Urban,70,1901
+40,Royal Kingston Regional Hospital,ON,Ontario,North West,Kingston,Rural,Urban,56,1885
+41,Royal Toronto Hospital,ON,Ontario,North East,Toronto,Rural,Rural,71,1937
+42,Royal London Hospital,ON,Ontario,West,London,Rural,Urban,61,1986
+43,Sunnybrook Swift Current Health Centre,SK,Saskatchewan,Saskatoon,Swift Current,Rural,Rural,53,1890
+44,East Chicoutimi Hospital,QC,Quebec,Mauricie,Chicoutimi,Community,Urban,231,1923
+45,Community Brampton Regional Hospital,ON,Ontario,South West,Brampton,Community,Urban,325,1888
+46,West Grande Prairie Medical Centre,AB,Alberta,North Zone,Grande Prairie,Teaching,Urban,267,1988
+47,Heritage Brampton Medical Centre,ON,Ontario,North West,Brampton,Community,Urban,168,1940
+48,University Nanaimo Hospital,BC,British Columbia,Interior,Nanaimo,Teaching,Urban,325,1944
+49,Victoria London Medical Centre,ON,Ontario,Central,London,Rural,Urban,68,1962
+50,University Sudbury Hospital,ON,Ontario,South West,Sudbury,Rural,Urban,45,1966
+51,Civic Abbotsford General Hospital,BC,British Columbia,Vancouver Island,Abbotsford,Teaching,Urban,412,1951
+52,Victoria Hamilton General Hospital,ON,Ontario,Central,Hamilton,Rural,Urban,63,1935
+53,Victoria Brampton Medical Centre,ON,Ontario,North East,Brampton,Community,Urban,119,1887
+54,Queen's Thunder Bay Memorial Hospital,ON,Ontario,Toronto Central,Thunder Bay,Rural,Rural,41,1956
+55,University Brampton Hospital,ON,Ontario,North West,Brampton,Rural,Rural,80,1978
+56,Royal Sherbrooke Medical Centre,QC,Quebec,Outaouais,Sherbrooke,Community,Urban,178,1895
+57,Memorial London Regional Hospital,ON,Ontario,East,London,Rural,Rural,66,1921
+58,Community Quebec City Memorial Hospital,QC,Quebec,Montreal,Quebec City,Rural,Rural,55,1948
+59,North Thunder Bay Regional Hospital,ON,Ontario,North East,Thunder Bay,Community,Urban,145,1907
+60,Heritage Rouyn-Noranda Health Centre,QC,Quebec,Outaouais,Rouyn-Noranda,Rural,Urban,46,1979
+61,Sunnybrook Rouyn-Noranda General Hospital,QC,Quebec,Outaouais,Rouyn-Noranda,Rural,Urban,92,1904
+62,East Chicoutimi Regional Hospital,QC,Quebec,Mauricie,Chicoutimi,Community,Urban,211,1932
+63,Memorial Montreal General Hospital,QC,Quebec,Lanaudiere,Montreal,Community,Urban,153,1979
+64,Maple New Glasgow Health Centre,NS,Nova Scotia,Northern,New Glasgow,Community,Urban,102,1904
+65,Sunnybrook London Regional Hospital,ON,Ontario,East,London,Community,Urban,177,1983
+66,South Sudbury Hospital & Health Sciences Centre,ON,Ontario,North West,Sudbury,Rural,Urban,42,1948
+67,St. Quebec City Hospital & Health Sciences Centre,QC,Quebec,Lanaudiere,Quebec City,Rural,Urban,44,1886
+68,Heritage Gatineau General Hospital,QC,Quebec,Capitale-Nationale,Gatineau,Teaching,Urban,209,1941
+69,South Peterborough Health Centre,ON,Ontario,Central,Peterborough,Rural,Rural,57,1899
+70,Queen's Thunder Bay General Hospital,ON,Ontario,East,Thunder Bay,Rural,Rural,68,1924
+71,Community Windsor Hospital,ON,Ontario,Toronto Central,Windsor,Community,Urban,80,1975
+72,Sunnybrook Peterborough Hospital & Health Sciences Centre,ON,Ontario,Central,Peterborough,Community,Urban,96,1964
+73,Community Sudbury Hospital,ON,Ontario,South West,Sudbury,Rural,Urban,38,1936
+74,Mount Rimouski Regional Hospital,QC,Quebec,Lanaudiere,Rimouski,Rural,Rural,61,1891
+75,Civic Grande Prairie Medical Centre,AB,Alberta,North Zone,Grande Prairie,Rural,Urban,61,1955
+76,Maple Sudbury Regional Hospital,ON,Ontario,Toronto Central,Sudbury,Rural,Urban,65,1891
+77,West Kelowna General Hospital,BC,British Columbia,Interior,Kelowna,Community,Urban,164,1951
+78,East Rimouski Health Centre,QC,Quebec,Mauricie,Rimouski,Community,Urban,186,1937
+79,Heritage Sherbrooke General Hospital,QC,Quebec,Mauricie,Sherbrooke,Rural,Rural,48,1978
+80,Regional London Regional Hospital,ON,Ontario,South West,London,Rural,Urban,40,1932
+81,Central Medicine Hat Health Centre,AB,Alberta,South Zone,Medicine Hat,Community,Urban,165,1973
+82,East Barrie General Hospital,ON,Ontario,East,Barrie,Community,Urban,245,1885
+83,South Quebec City Health Centre,QC,Quebec,Lanaudiere,Quebec City,Rural,Rural,49,1912
+84,St. Chicoutimi Memorial Hospital,QC,Quebec,Mauricie,Chicoutimi,Rural,Urban,69,1954
+85,West Kingston General Hospital,ON,Ontario,Toronto Central,Kingston,Teaching,Urban,351,1923
+86,Regional Saguenay Memorial Hospital,QC,Quebec,Outaouais,Saguenay,Teaching,Urban,512,1906
+87,Victoria Brampton Health Centre,ON,Ontario,Toronto Central,Brampton,Community,Urban,258,1927
+88,Memorial Kamloops Regional Hospital,BC,British Columbia,Vancouver Coastal,Kamloops,Community,Urban,170,1959
+89,Sunnybrook Ottawa Hospital & Health Sciences Centre,ON,Ontario,Central,Ottawa,Rural,Rural,47,1883
+90,Maple Ottawa Health Centre,ON,Ontario,North East,Ottawa,Rural,Urban,57,1974
+91,St. Windsor Regional Hospital,ON,Ontario,North East,Windsor,Rural,Urban,80,1948
+92,Victoria Ottawa General Hospital,ON,Ontario,West,Ottawa,Community,Urban,200,1943
+93,Royal Rimouski Medical Centre,QC,Quebec,Capitale-Nationale,Rimouski,Community,Urban,193,1910
+94,East Thunder Bay Hospital & Health Sciences Centre,ON,Ontario,West,Thunder Bay,Community,Urban,185,1921
+95,University Grande Prairie Regional Hospital,AB,Alberta,South Zone,Grande Prairie,Community,Urban,246,1956
+96,Memorial Brampton Health Centre,ON,Ontario,Central,Brampton,Teaching,Urban,438,1924
+97,West Fredericton General Hospital,NB,New Brunswick,Vitalite,Fredericton,Rural,Rural,33,1977
+98,North Trois-Rivieres Memorial Hospital,QC,Quebec,Montreal,Trois-Rivieres,Community,Urban,102,1963
+99,Central Mississauga General Hospital,ON,Ontario,East,Mississauga,Community,Urban,157,1957
+100,St. Prince George Memorial Hospital,BC,British Columbia,Vancouver Coastal,Prince George,Rural,Rural,74,1941
+101,University Ottawa Hospital & Health Sciences Centre,ON,Ontario,North West,Ottawa,Community,Urban,92,1935
+102,St. Sudbury Memorial Hospital,ON,Ontario,Central,Sudbury,Specialty,Urban,187,1888
+103,East Windsor Health Centre,ON,Ontario,West,Windsor,Rural,Urban,67,1988
+104,Mount Hamilton Medical Centre,ON,Ontario,South West,Hamilton,Rural,Urban,58,1942
+105,Mount Laval Hospital,QC,Quebec,Outaouais,Laval,Community,Urban,159,1979
+106,Regional Rimouski Regional Hospital,QC,Quebec,Estrie,Rimouski,Rural,Rural,44,1948
+107,General Barrie Health Centre,ON,Ontario,West,Barrie,Rural,Rural,50,1907
+108,University Swift Current Hospital,SK,Saskatchewan,Regina,Swift Current,Community,Urban,179,1910
+109,East London General Hospital,ON,Ontario,North West,London,Community,Urban,152,1913
+110,Maple Quebec City General Hospital,QC,Quebec,Lanaudiere,Quebec City,Community,Urban,174,1914
+111,Royal Windsor Hospital,ON,Ontario,North West,Windsor,Rural,Urban,83,1924
+112,St. London Health Centre,ON,Ontario,South West,London,Rural,Urban,53,1931
+113,Heritage Calgary Memorial Hospital,AB,Alberta,Central Zone,Calgary,Community,Urban,175,1901
+114,Victoria Sault Ste. Marie Memorial Hospital,ON,Ontario,South West,Sault Ste. Marie,Rural,Urban,45,1981
+115,Heritage Red Deer Health Centre,AB,Alberta,North Zone,Red Deer,Rural,Urban,48,1965
+116,University Trois-Rivieres General Hospital,QC,Quebec,Mauricie,Trois-Rivieres,Community,Urban,122,1915
+117,University Vancouver General Hospital,BC,British Columbia,Interior,Vancouver,Community,Urban,150,1921
+118,St. Moose Jaw Regional Hospital,SK,Saskatchewan,Regina,Moose Jaw,Rural,Rural,98,1922
+119,East Rimouski Memorial Hospital,QC,Quebec,Montreal,Rimouski,Community,Urban,114,1897
+120,Central Kingston Memorial Hospital,ON,Ontario,Toronto Central,Kingston,Community,Urban,180,1979
+121,General Kelowna Hospital,BC,British Columbia,Vancouver Coastal,Kelowna,Teaching,Urban,260,1975
+122,Heritage Kamloops Memorial Hospital,BC,British Columbia,Northern,Kamloops,Teaching,Urban,543,1915
+123,University Lethbridge Health Centre,AB,Alberta,South Zone,Lethbridge,Rural,Urban,62,1903
+124,North London Health Centre,ON,Ontario,North West,London,Community,Urban,183,1915
+125,Community Peterborough Hospital,ON,Ontario,North East,Peterborough,Teaching,Urban,506,1900
+126,Mount New Glasgow General Hospital,NS,Nova Scotia,Eastern,New Glasgow,Teaching,Urban,611,1912
+127,Mount Rouyn-Noranda Hospital & Health Sciences Centre,QC,Quebec,Outaouais,Rouyn-Noranda,Rural,Rural,80,1899
+128,Central Mississauga General Hospital,ON,Ontario,Toronto Central,Mississauga,Rural,Urban,33,1882
+129,Royal Rouyn-Noranda Medical Centre,QC,Quebec,Lanaudiere,Rouyn-Noranda,Rural,Rural,66,1976
+130,Victoria Chicoutimi Medical Centre,QC,Quebec,Capitale-Nationale,Chicoutimi,Rural,Rural,56,1889
+131,Community Peterborough Regional Hospital,ON,Ontario,West,Peterborough,Community,Urban,153,1981
+132,Royal Montreal General Hospital,QC,Quebec,Mauricie,Montreal,Community,Urban,142,1894
+133,Central Sault Ste. Marie Regional Hospital,ON,Ontario,North East,Sault Ste. Marie,Teaching,Urban,587,1896
+134,Heritage Toronto General Hospital,ON,Ontario,North East,Toronto,Community,Urban,236,1908
+135,St. Sudbury Health Centre,ON,Ontario,South West,Sudbury,Community,Urban,263,1974
+136,St. Sudbury Hospital,ON,Ontario,North West,Sudbury,Community,Urban,117,1937
+137,Memorial Trois-Rivieres Health Centre,QC,Quebec,Lanaudiere,Trois-Rivieres,Rural,Urban,62,1988
+138,Sunnybrook Moose Jaw General Hospital,SK,Saskatchewan,North,Moose Jaw,Community,Urban,168,1916
+139,Community Hamilton Regional Hospital,ON,Ontario,Toronto Central,Hamilton,Rural,Urban,71,1988
+140,Heritage Thunder Bay Hospital,ON,Ontario,West,Thunder Bay,Specialty,Urban,176,1969
+141,Maple Kingston Regional Hospital,ON,Ontario,Toronto Central,Kingston,Teaching,Urban,441,1942
+142,University Sault Ste. Marie Hospital & Health Sciences Centre,ON,Ontario,West,Sault Ste. Marie,Rural,Urban,33,1887
+143,Victoria Sault Ste. Marie Hospital,ON,Ontario,West,Sault Ste. Marie,Specialty,Urban,137,1950
+144,Community Sudbury Regional Hospital,ON,Ontario,East,Sudbury,Community,Urban,179,1887
+145,Central Truro General Hospital,NS,Nova Scotia,Western,Truro,Rural,Urban,65,1921
+146,Central Portage la Prairie Hospital & Health Sciences Centre,MB,Manitoba,Winnipeg,Portage la Prairie,Community,Urban,189,1933
+147,Central Peterborough Memorial Hospital,ON,Ontario,West,Peterborough,Rural,Urban,68,1970
+148,West Fort McMurray General Hospital,AB,Alberta,North Zone,Fort McMurray,Community,Urban,111,1941
+149,Royal Toronto Memorial Hospital,ON,Ontario,Toronto Central,Toronto,Rural,Urban,54,1933
+150,Maple Surrey Memorial Hospital,BC,British Columbia,Vancouver Coastal,Surrey,Community,Urban,129,1962

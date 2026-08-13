@@ -1,0 +1,9 @@
+procedure_id,code,name,category,benchmark_50_days,benchmark_90_days,complexity,requires_specialist
+1,HIP_REP,Hip Replacement,Orthopaedic,91,182,high,True
+2,KNEE_REP,Knee Replacement,Orthopaedic,91,182,high,True
+3,HIP_FRAC,Hip Fracture Repair,Orthopaedic,1,2,urgent,True
+4,CATARACT,Cataract Surgery,Ophthalmology,56,112,low,True
+5,RAD_THER,Radiation Therapy,Oncology,14,28,high,True
+6,BYPASS,Cardiac Bypass Surgery,Cardiac,7,14,urgent,True
+7,CANCER_S,Cancer Surgery,Oncology,14,28,high,True
+8,MRI_SCAN,MRI Scan,Diagnostic,15,30,low,False
