@@ -1,5 +1,4 @@
 # CanHealth Analytics
-## Senior Data Analyst Portfolio Project
 
 **Domain:** Canadian Healthcare — CIHI Wait Times for Priority Procedures
 
