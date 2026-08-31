@@ -8,13 +8,13 @@ import plotly.graph_objects as go
 
 # --- PAGE CONFIGURATION ---
 st.set_page_config(
-    page_title="CanHealth Analytics - Healthcare Intelligence Portal",
+    page_title="CanHealth Intelligence - Healthcare Analytics",
     page_icon="🏥",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# --- CUSTOM CSS STYLING ---
+# --- DISTINCT EMERALD & TEAL HEALTHCARE THEME (CSS) ---
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -23,34 +23,43 @@ st.markdown("""
         font-family: 'Outfit', 'Inter', sans-serif;
     }
 
+    /* Deep Emerald & Cyan Oceanic Radial Background */
     .stApp {
-        background: radial-gradient(circle at 50% 0%, #0f172a 0%, #020617 100%);
+        background: radial-gradient(circle at 50% 0%, #064e3b 0%, #0f2922 40%, #020617 100%);
         color: #f8fafc;
     }
 
+    /* Glassmorphism Cards with Emerald Border Glow */
     .glass-card {
-        background: rgba(30, 41, 59, 0.45);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 18px;
-        padding: 24px;
+        background: rgba(15, 23, 42, 0.65);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(45, 212, 191, 0.2);
+        border-radius: 20px;
+        padding: 26px;
         margin-bottom: 24px;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
+    .glass-card:hover {
+        border-color: rgba(45, 212, 191, 0.5);
+        box-shadow: 0 25px 50px rgba(45, 212, 191, 0.15);
+    }
+
+    /* Metrics Container */
     .metric-container {
-        background: rgba(15, 23, 42, 0.6);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 14px;
-        padding: 18px;
+        background: rgba(6, 78, 59, 0.35);
+        border: 1px solid rgba(45, 212, 191, 0.25);
+        border-radius: 16px;
+        padding: 20px;
         text-align: center;
     }
 
     .metric-val {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
         font-weight: 800;
-        background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+        background: linear-gradient(135deg, #2dd4bf 0%, #38bdf8 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -60,8 +69,23 @@ st.markdown("""
         font-size: 0.85rem;
         font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.06em;
         margin-top: 4px;
+    }
+
+    /* Pill Badges */
+    .badge-tag {
+        display: inline-block;
+        background: rgba(45, 212, 191, 0.15);
+        border: 1px solid rgba(45, 212, 191, 0.35);
+        color: #99f6e4;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin: 0 6px 14px 6px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -76,16 +100,15 @@ def run_query(query):
     conn.close()
     return df
 
-# Initialize database if missing
 if not os.path.exists(DB_PATH):
     import setup_sqlite
     setup_sqlite.main()
 
 # --- SIDEBAR ---
 with st.sidebar:
-    st.image("https://img.icons8.com/isometric/100/hospital.png", width=75)
-    st.markdown("### 🏥 CanHealth Intelligence")
-    st.caption("National Healthcare Analytics & Wait Time Intelligence Engine")
+    st.markdown('<div style="text-align: center; padding: 12px 0;"><img src="https://img.icons8.com/isometric/120/hospital.png" width="80"></div>', unsafe_allow_html=True)
+    st.markdown('<h3 style="text-align: center; color: #99f6e4; font-weight: 700;">CanHealth Intelligence</h3>', unsafe_allow_html=True)
+    st.markdown('<p style="text-align: center; color: #94a3b8; font-size: 0.9rem;">National Healthcare Analytics Platform</p>', unsafe_allow_html=True)
     
     st.markdown("---")
     page = st.radio(
@@ -94,7 +117,7 @@ with st.sidebar:
             "📊 Executive Overview",
             "🗺️ Province Deep Dive",
             "🩺 Procedure Analysis",
-            "⚖️ Equity & Facility Type",
+            "⚖️ Equity & Access Analysis",
             "🏥 Hospital Scorecard"
         ]
     )
@@ -107,12 +130,15 @@ with st.sidebar:
 
 # --- HEADER ---
 st.markdown("""
-<div style="text-align: center; padding: 10px 0 25px 0;">
-    <h1 style="background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 3rem; font-weight: 800;">
-        CanHealth National Analytics Platform
+<div style="text-align: center; padding: 10px 0 30px 0;">
+    <span class="badge-tag">🇨🇦 Health Data Warehouse</span>
+    <span class="badge-tag">📈 Clinical & Financial BI</span>
+    <span class="badge-tag">⚡ Star Schema Engine</span>
+    <h1 style="background: linear-gradient(135deg, #2dd4bf 0%, #38bdf8 50%, #a855f7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 3.2rem; font-weight: 800; letter-spacing: -0.02em;">
+        CanHealth National Healthcare Analytics
     </h1>
-    <p style="color: #94a3b8; font-size: 1.15rem; max-width: 750px; margin: 0 auto;">
-        Interactive Business Intelligence & Data Warehouse Analytics for Canadian Healthcare Performance
+    <p style="color: #94a3b8; font-size: 1.2rem; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+        Enterprise Data Warehouse & Business Intelligence Platform Analyzing Canadian Hospital Operational Efficiency, Wait Times, and Access Equity.
     </p>
 </div>
 """, unsafe_allow_html=True)
@@ -120,7 +146,7 @@ st.markdown("""
 # --- PAGE 1: EXECUTIVE OVERVIEW ---
 if page == "📊 Executive Overview":
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.subheader("📈 National Key Performance Indicators")
+    st.markdown('<h3 style="color: #2dd4bf; margin-bottom: 16px;">📈 National Key Performance Indicators</h3>', unsafe_allow_html=True)
     
     kpi_query = """
     SELECT 
@@ -147,7 +173,7 @@ if page == "📊 Executive Overview":
     col1, col2 = st.columns(2)
     with col1:
         st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-        st.subheader("📅 Benchmark Compliance Trend (2014-2023)")
+        st.markdown('<h3 style="color: #38bdf8; margin-bottom: 12px;">📅 Benchmark Compliance Trend (2014-2023)</h3>', unsafe_allow_html=True)
         trend_query = """
         SELECT p.fiscal_year, ROUND(AVG(w.pct_within_benchmark), 1) as benchmark_pct
         FROM fact_wait_times w
@@ -156,14 +182,14 @@ if page == "📊 Executive Overview":
         ORDER BY p.fiscal_year
         """
         df_trend = run_query(trend_query)
-        fig_trend = px.line(df_trend, x='fiscal_year', y='benchmark_pct', markers=True, color_discrete_sequence=['#38bdf8'])
-        fig_trend.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', font=dict(color='#f8fafc'), height=340)
+        fig_trend = px.line(df_trend, x='fiscal_year', y='benchmark_pct', markers=True, color_discrete_sequence=['#2dd4bf'])
+        fig_trend.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', font=dict(color='#f8fafc', family='Outfit'), height=340)
         st.plotly_chart(fig_trend, use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
         
     with col2:
         st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-        st.subheader("🇨🇦 Provincial Benchmark Compliance Ranking")
+        st.markdown('<h3 style="color: #2dd4bf; margin-bottom: 12px;">🇨🇦 Provincial Benchmark Compliance Ranking</h3>', unsafe_allow_html=True)
         prov_query = """
         SELECT h.province_name as province, ROUND(AVG(w.pct_within_benchmark), 1) as benchmark_pct
         FROM fact_wait_times w
@@ -172,15 +198,15 @@ if page == "📊 Executive Overview":
         ORDER BY benchmark_pct DESC
         """
         df_prov = run_query(prov_query)
-        fig_prov = px.bar(df_prov, x='province', y='benchmark_pct', color='benchmark_pct', color_continuous_scale='viridis')
-        fig_prov.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', font=dict(color='#f8fafc'), height=340)
+        fig_prov = px.bar(df_prov, x='province', y='benchmark_pct', color='benchmark_pct', color_continuous_scale='tealgrn')
+        fig_prov.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', font=dict(color='#f8fafc', family='Outfit'), height=340)
         st.plotly_chart(fig_prov, use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
 # --- PAGE 2: PROVINCE DEEP DIVE ---
 elif page == "🗺️ Province Deep Dive":
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.subheader("🗺️ Provincial Comparative Performance")
+    st.markdown('<h3 style="color: #2dd4bf;">🗺️ Provincial Comparative Performance</h3>', unsafe_allow_html=True)
     
     p_query = """
     SELECT h.province_name as province, pr.category, ROUND(AVG(w.p90_wait_days), 1) as avg_p90, ROUND(AVG(w.pct_within_benchmark), 1) as benchmark_pct, SUM(w.patient_count) as total_vol
@@ -195,15 +221,15 @@ elif page == "🗺️ Province Deep Dive":
     if category_filter != "All":
         df_p = df_p[df_p['category'] == category_filter]
         
-    fig_p = px.bar(df_p, x='province', y='avg_p90', color='category', barmode='group', title="Avg 90th Percentile Wait Days by Province")
-    fig_p.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', font=dict(color='#f8fafc'), height=450)
+    fig_p = px.bar(df_p, x='province', y='avg_p90', color='category', barmode='group', title="Avg 90th Percentile Wait Days by Province", color_discrete_sequence=px.colors.qualitative.Teal)
+    fig_p.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', font=dict(color='#f8fafc', family='Outfit'), height=450)
     st.plotly_chart(fig_p, use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
 # --- PAGE 3: PROCEDURE ANALYSIS ---
 elif page == "🩺 Procedure Analysis":
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.subheader("🩺 Procedure Wait Time vs Benchmark Target")
+    st.markdown('<h3 style="color: #38bdf8;">🩺 Procedure Wait Time vs Benchmark Target</h3>', unsafe_allow_html=True)
     
     proc_query = """
     SELECT pr.name as procedure_name, pr.benchmark_90_days as target_days, ROUND(AVG(w.p90_wait_days), 1) as actual_p90, ROUND(AVG(w.pct_within_benchmark), 1) as benchmark_pct
@@ -215,17 +241,17 @@ elif page == "🩺 Procedure Analysis":
     df_proc = run_query(proc_query)
     
     fig_proc = go.Figure()
-    fig_proc.add_trace(go.Bar(x=df_proc['procedure_name'], y=df_proc['actual_p90'], name='Actual P90 Wait (Days)', marker_color='#818cf8'))
-    fig_proc.add_trace(go.Bar(x=df_proc['procedure_name'], y=df_proc['target_days'], name='Benchmark Target (Days)', marker_color='#34d399'))
+    fig_proc.add_trace(go.Bar(x=df_proc['procedure_name'], y=df_proc['actual_p90'], name='Actual P90 Wait (Days)', marker_color='#2dd4bf'))
+    fig_proc.add_trace(go.Bar(x=df_proc['procedure_name'], y=df_proc['target_days'], name='Benchmark Target (Days)', marker_color='#38bdf8'))
     
-    fig_proc.update_layout(barmode='group', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', font=dict(color='#f8fafc'), height=450)
+    fig_proc.update_layout(barmode='group', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', font=dict(color='#f8fafc', family='Outfit'), height=450)
     st.plotly_chart(fig_proc, use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
 # --- PAGE 4: EQUITY ANALYSIS ---
-elif page == "⚖️ Equity & Facility Type":
+elif page == "⚖️ Equity & Access Analysis":
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.subheader("⚖️ Urban vs Rural Facility Healthcare Access Equity")
+    st.markdown('<h3 style="color: #2dd4bf;">⚖️ Urban vs Rural Facility Healthcare Access Equity</h3>', unsafe_allow_html=True)
     
     eq_query = """
     SELECT h.urban_rural, pr.name as procedure_name, ROUND(AVG(w.p90_wait_days), 1) as avg_p90
@@ -236,15 +262,15 @@ elif page == "⚖️ Equity & Facility Type":
     """
     df_eq = run_query(eq_query)
     
-    fig_eq = px.bar(df_eq, x='procedure_name', y='avg_p90', color='urban_rural', barmode='group', title="Urban vs Rural P90 Wait Times")
-    fig_eq.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', font=dict(color='#f8fafc'), height=450)
+    fig_eq = px.bar(df_eq, x='procedure_name', y='avg_p90', color='urban_rural', barmode='group', title="Urban vs Rural P90 Wait Times", color_discrete_sequence=['#2dd4bf', '#f472b6'])
+    fig_eq.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', font=dict(color='#f8fafc', family='Outfit'), height=450)
     st.plotly_chart(fig_eq, use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
 # --- PAGE 5: HOSPITAL SCORECARD ---
 elif page == "🏥 Hospital Scorecard":
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.subheader("🏥 Hospital Performance Scorecard & Financial Insights")
+    st.markdown('<h3 style="color: #38bdf8;">🏥 Hospital Performance Scorecard & Financial Insights</h3>', unsafe_allow_html=True)
     
     hosp_query = """
     SELECT h.hospital_name, h.province_name as province, h.urban_rural, h.bed_count, 
