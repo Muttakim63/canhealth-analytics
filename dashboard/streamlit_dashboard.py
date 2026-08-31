@@ -124,9 +124,9 @@ if page == "📊 Executive Overview":
     
     kpi_query = """
     SELECT 
-        SUM(completed_volume) as total_volume,
+        SUM(patient_count) as total_volume,
         ROUND(AVG(p90_wait_days), 1) as avg_p90_wait,
-        ROUND(AVG(within_benchmark_pct), 1) as avg_benchmark_pct,
+        ROUND(AVG(pct_within_benchmark), 1) as avg_benchmark_pct,
         COUNT(DISTINCT hospital_id) as total_hospitals
     FROM fact_wait_times
     """
@@ -134,13 +134,13 @@ if page == "📊 Executive Overview":
     
     m1, m2, m3, m4 = st.columns(4)
     with m1:
-        st.markdown(f'<div class="metric-container"><div class="metric-val">{kpis["total_volume"]:,}</div><div class="metric-lbl">Total Procedures</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="metric-container"><div class="metric-val">{int(kpis["total_volume"]):,}</div><div class="metric-lbl">Total Patient Visits</div></div>', unsafe_allow_html=True)
     with m2:
         st.markdown(f'<div class="metric-container"><div class="metric-val">{kpis["avg_p90_wait"]}d</div><div class="metric-lbl">Avg P90 Wait Time</div></div>', unsafe_allow_html=True)
     with m3:
         st.markdown(f'<div class="metric-container"><div class="metric-val">{kpis["avg_benchmark_pct"]}%</div><div class="metric-lbl">Benchmark Met Target</div></div>', unsafe_allow_html=True)
     with m4:
-        st.markdown(f'<div class="metric-container"><div class="metric-val">{kpis["total_hospitals"]}</div><div class="metric-lbl">Hospitals Reporting</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="metric-container"><div class="metric-val">{int(kpis["total_hospitals"])}</div><div class="metric-lbl">Hospitals Reporting</div></div>', unsafe_allow_html=True)
     
     st.markdown('</div>', unsafe_allow_html=True)
     
@@ -149,7 +149,7 @@ if page == "📊 Executive Overview":
         st.markdown('<div class="glass-card">', unsafe_allow_html=True)
         st.subheader("📅 Benchmark Compliance Trend (2014-2023)")
         trend_query = """
-        SELECT p.fiscal_year, ROUND(AVG(w.within_benchmark_pct), 1) as benchmark_pct
+        SELECT p.fiscal_year, ROUND(AVG(w.pct_within_benchmark), 1) as benchmark_pct
         FROM fact_wait_times w
         JOIN dim_periods p ON w.period_id = p.period_id
         GROUP BY p.fiscal_year
@@ -165,10 +165,10 @@ if page == "📊 Executive Overview":
         st.markdown('<div class="glass-card">', unsafe_allow_html=True)
         st.subheader("🇨🇦 Provincial Benchmark Compliance Ranking")
         prov_query = """
-        SELECT h.province, ROUND(AVG(w.within_benchmark_pct), 1) as benchmark_pct
+        SELECT h.province_name as province, ROUND(AVG(w.pct_within_benchmark), 1) as benchmark_pct
         FROM fact_wait_times w
         JOIN dim_hospitals h ON w.hospital_id = h.hospital_id
-        GROUP BY h.province
+        GROUP BY h.province_name
         ORDER BY benchmark_pct DESC
         """
         df_prov = run_query(prov_query)
@@ -183,19 +183,19 @@ elif page == "🗺️ Province Deep Dive":
     st.subheader("🗺️ Provincial Comparative Performance")
     
     p_query = """
-    SELECT h.province, p.category_name, ROUND(AVG(w.p90_wait_days), 1) as avg_p90, ROUND(AVG(w.within_benchmark_pct), 1) as benchmark_pct, SUM(w.completed_volume) as total_vol
+    SELECT h.province_name as province, pr.category, ROUND(AVG(w.p90_wait_days), 1) as avg_p90, ROUND(AVG(w.pct_within_benchmark), 1) as benchmark_pct, SUM(w.patient_count) as total_vol
     FROM fact_wait_times w
     JOIN dim_hospitals h ON w.hospital_id = h.hospital_id
-    JOIN dim_procedures p ON w.procedure_id = p.procedure_id
-    GROUP BY h.province, p.category_name
+    JOIN dim_procedures pr ON w.procedure_id = pr.procedure_id
+    GROUP BY h.province_name, pr.category
     """
     df_p = run_query(p_query)
     
-    category_filter = st.selectbox("Select Procedure Category", ["All"] + list(df_p['category_name'].unique()))
+    category_filter = st.selectbox("Select Procedure Category", ["All"] + list(df_p['category'].unique()))
     if category_filter != "All":
-        df_p = df_p[df_p['category_name'] == category_filter]
+        df_p = df_p[df_p['category'] == category_filter]
         
-    fig_p = px.bar(df_p, x='province', y='avg_p90', color='category_name', barmode='group', title="Avg 90th Percentile Wait Days by Province")
+    fig_p = px.bar(df_p, x='province', y='avg_p90', color='category', barmode='group', title="Avg 90th Percentile Wait Days by Province")
     fig_p.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', font=dict(color='#f8fafc'), height=450)
     st.plotly_chart(fig_p, use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
@@ -206,17 +206,17 @@ elif page == "🩺 Procedure Analysis":
     st.subheader("🩺 Procedure Wait Time vs Benchmark Target")
     
     proc_query = """
-    SELECT pr.procedure_name, pr.benchmark_target_days, ROUND(AVG(w.p90_wait_days), 1) as actual_p90, ROUND(AVG(w.within_benchmark_pct), 1) as benchmark_pct
+    SELECT pr.name as procedure_name, pr.benchmark_90_days as target_days, ROUND(AVG(w.p90_wait_days), 1) as actual_p90, ROUND(AVG(w.pct_within_benchmark), 1) as benchmark_pct
     FROM fact_wait_times w
     JOIN dim_procedures pr ON w.procedure_id = pr.procedure_id
-    GROUP BY pr.procedure_name, pr.benchmark_target_days
+    GROUP BY pr.name, pr.benchmark_90_days
     ORDER BY actual_p90 DESC
     """
     df_proc = run_query(proc_query)
     
     fig_proc = go.Figure()
     fig_proc.add_trace(go.Bar(x=df_proc['procedure_name'], y=df_proc['actual_p90'], name='Actual P90 Wait (Days)', marker_color='#818cf8'))
-    fig_proc.add_trace(go.Bar(x=df_proc['procedure_name'], y=df_proc['benchmark_target_days'], name='Benchmark Target (Days)', marker_color='#34d399'))
+    fig_proc.add_trace(go.Bar(x=df_proc['procedure_name'], y=df_proc['target_days'], name='Benchmark Target (Days)', marker_color='#34d399'))
     
     fig_proc.update_layout(barmode='group', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', font=dict(color='#f8fafc'), height=450)
     st.plotly_chart(fig_proc, use_container_width=True)
@@ -228,11 +228,11 @@ elif page == "⚖️ Equity & Facility Type":
     st.subheader("⚖️ Urban vs Rural Facility Healthcare Access Equity")
     
     eq_query = """
-    SELECT h.urban_rural, pr.procedure_name, ROUND(AVG(w.p90_wait_days), 1) as avg_p90
+    SELECT h.urban_rural, pr.name as procedure_name, ROUND(AVG(w.p90_wait_days), 1) as avg_p90
     FROM fact_wait_times w
     JOIN dim_hospitals h ON w.hospital_id = h.hospital_id
     JOIN dim_procedures pr ON w.procedure_id = pr.procedure_id
-    GROUP BY h.urban_rural, pr.procedure_name
+    GROUP BY h.urban_rural, pr.name
     """
     df_eq = run_query(eq_query)
     
@@ -247,14 +247,13 @@ elif page == "🏥 Hospital Scorecard":
     st.subheader("🏥 Hospital Performance Scorecard & Financial Insights")
     
     hosp_query = """
-    SELECT h.hospital_name, h.province, h.urban_rural, h.bed_count, 
+    SELECT h.hospital_name, h.province_name as province, h.urban_rural, h.bed_count, 
            ROUND(AVG(w.p90_wait_days), 1) as avg_wait_days,
-           ROUND(AVG(w.within_benchmark_pct), 1) as benchmark_compliance_pct,
-           ROUND(AVG(f.operating_margin_pct), 1) as margin_pct
+           ROUND(AVG(w.pct_within_benchmark), 1) as benchmark_compliance_pct,
+           SUM(w.patient_count) as total_patients
     FROM dim_hospitals h
     LEFT JOIN fact_wait_times w ON h.hospital_id = w.hospital_id
-    LEFT JOIN fact_financials f ON h.hospital_id = f.hospital_id
-    GROUP BY h.hospital_name, h.province, h.urban_rural, h.bed_count
+    GROUP BY h.hospital_name, h.province_name, h.urban_rural, h.bed_count
     LIMIT 100
     """
     df_hosp = run_query(hosp_query)
